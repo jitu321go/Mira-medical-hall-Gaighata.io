@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- data-cfasync="false" prevents Cloudflare email obfuscation -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mira Medical Hall – Gaighata’s Trusted Pharmacy | Allopathic Medicine</title>
+<meta name="description" content="Mira Medical Hall – Gaighata Thana More, North 24 Parganas. 100% genuine allopathic medicines, 10 specialist doctors, ECG 24/7, pathology lab. Call 90932 10673.">
+<meta name="keywords" content="Mira Medical Hall, Gaighata pharmacy, allopathic medicine, doctor consultation Gaighata, North 24 Parganas pharmacy, prescription upload">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://miramedicalhall.in/">
+<!-- Open Graph -->
+<meta property="og:title"       content="Mira Medical Hall – Gaighata’s Trusted Pharmacy">
+<meta property="og:description" content="100% genuine allopathic medicines, 10 specialist doctors, ECG 24/7. Gaighata Thana More, North 24 Parganas. Call 90932 10673.">
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://miramedicalhall.in/">
+<meta property="og:image"       content="https://images.unsplash.com/photo-1576671081837-49000212a370?w=1200&q=80">
+<!-- Twitter Card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Mira Medical Hall – Gaighata’s Trusted Pharmacy">
+<meta name="twitter:description" content="100% genuine allopathic medicines, 10 specialist doctors, ECG 24/7. Call 90932 10673.">
+<!-- Favicon (emoji) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128138;</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ══════════════════════════════════════
+   PAGE LOADER
+══════════════════════════════════════ */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #051e1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  transition: opacity .55s cubic-bezier(.4,0,.2,1), visibility .55s;
+}
+#page-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ── Cross / plus mark ── */
+.loader-cross {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.loader-cross::before,
+.loader-cross::after {
+  content: '';
+  position: absolute;
+  background: #0d9e8d;
+  border-radius: 4px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader-cross::before { width: 12px; height: 64px; }
+.loader-cross::after  { width: 64px; height: 12px; }
+
+/* ── Rotating ring around cross ── */
+.loader-ring {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #e8a020;
+  border-right-color: rgba(232,160,32,.35);
+  animation: loaderSpin 1s linear infinite;
+}
+.loader-ring2 {
+  position: absolute;
+  inset: -26px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-bottom-color: #0d9e8d;
+  border-left-color: rgba(13,158,141,.3);
+  animation: loaderSpin 1.6s linear infinite reverse;
+}
+@keyframes loaderSpin { to { transform: rotate(360deg); } }
+
+/* ── Pulse dots ── */
+.loader-dots {
+  display: flex;
+  gap: 8px;
+}
+.loader-dots span {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #0d9e8d;
+  animation: loaderDot 1.2s ease-in-out infinite;
+}
+.loader-dots span:nth-child(2) { animation-delay: .2s; background: #e8a020; }
+.loader-dots span:nth-child(3) { animation-delay: .4s; }
+@keyframes loaderDot {
+  0%,80%,100% { transform: scale(.6); opacity:.4; }
+  40%         { transform: scale(1.2); opacity:1; }
+}
+
+/* ── Brand text ── */
+.loader-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: .02em;
+  opacity: 0;
+  animation: loaderFadeUp .7s .2s cubic-bezier(.22,1,.36,1) forwards;
+}
+.loader-brand span { color: #0d9e8d; }
+.loader-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #e8a020;
+  opacity: 0;
+  animation: loaderFadeUp .7s .4s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+/* ── Progress bar ── */
+.loader-bar-wrap {
+  width: 160px;
+  height: 3px;
+  background: rgba(255,255,255,.1);
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  animation: loaderFadeUp .5s .5s ease forwards;
+}
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #0a7c6e, #e8a020, #0d9e8d);
+  border-radius: 2px;
+  animation: loaderProgress 1.6s .5s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes loaderProgress { to { width: 100%; } }
+@keyframes loaderFadeUp {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ══════════════════════════════════════
+   RESET
+══════════════════════════════════════ */
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; color:var(--text); background:var(--bg); overflow-x:hidden; -webkit-text-size-adjust:100%; }
+html,body { max-width:100%; overflow-x:hidden; }
+img  { max-width:100%; display:block; }
+a    { color:inherit; }
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-thumb { background:var(--teal); border-radius:3px; }
+
+/* ══════════════════════════════════════
+   NEW COLOR SCHEME  — deep teal / gold / warm cream
+══════════════════════════════════════ */
+:root {
+  /* Primary — deep teal */
+  --teal:      #0a7c6e;
+  --teal-d:    #065a4f;
+  --teal-l:    #e0f5f2;
+  --teal-mid:  #0d9e8d;
+
+  /* Accent — warm gold */
+  --gold:      #e8a020;
+  --gold-d:    #b87a10;
+  --gold-l:    #fdf3e0;
+
+  /* Success green (pills, tags) */
+  --green:     #2ecc71;
+  --green-d:   #1a9e55;
+  --green-l:   #e6f9ef;
+
+  /* Neutrals */
+  --bg:        #f7f9f8;
+  --white:     #ffffff;
+  --gray1:     #f0f4f3;
+  --gray2:     #dde6e4;
+  --gray4:     #8fa89f;
+  --gray6:     #4a6660;
+  --gray8:     #1a2e2a;
+  --text:      #0d1f1c;
+
+  /* Shadows */
+  --sh:  0 4px 20px rgba(10,124,110,.11);
+  --shb: 0 10px 40px rgba(10,124,110,.18);
+
+  /* Radius */
+  --r:  14px;
+  --rs: 8px;
+}
+
+/* ══════════════════════════════════════
+   GLOBAL KEYFRAMES
+══════════════════════════════════════ */
+@-webkit-keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+@keyframes slideLeft{ from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
+@keyframes scaleIn  { from{opacity:0;transform:scale(.92)} to{opacity:1;transform:scale(1)} }
+@keyframes pulse    { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:.55} }
+@keyframes spin     { to{transform:rotate(360deg)} }
+@keyframes tick { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@-webkit-keyframes tick { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@keyframes flt1     { 0%,100%{transform:rotate(3deg) translateY(0)} 50%{transform:rotate(3deg) translateY(-10px)} }
+@keyframes flt2     { 0%,100%{transform:rotate(-4deg) translateY(0)} 50%{transform:rotate(-4deg) translateY(10px)} }
+@keyframes fbounce  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes heroKen  { 0%{transform:scale(1) translateX(0)} 100%{transform:scale(1.08) translateX(-20px)} }
+@keyframes shimmer  { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+@keyframes waveIn   { 0%{transform:translateX(-100%) skewX(-12deg)} 100%{transform:translateX(200%) skewX(-12deg)} }
+@keyframes countUp  { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+/* ══════════════════════════════════════
+   UTILITY
+══════════════════════════════════════ */
+.wrap { max-width:1160px; margin:0 auto; padding:0 24px; }
+.sec  { padding:80px 0; }
+.lbl  { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--teal-mid); margin-bottom:9px; }
+.h2   { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,44px); font-weight:900; line-height:1.15; margin-bottom:14px; }
+.h2 span { color:var(--teal); }
+.lead { font-size:15px; color:var(--gray6); line-height:1.8; max-width:560px; margin-bottom:44px; }
+.tag  { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:4px; }
+.tag-green { background:var(--green-l); color:var(--green-d); }
+.tag-gold  { background:var(--gold-l);  color:var(--gold-d); }
+.tag-teal  { background:var(--teal-l);  color:var(--teal-d); }
+.tag-red   { background:#fee2e2; color:#c0392b; }
+
+/* scroll-reveal helper (JS adds .revealed) */
+/* Reveal: hidden state only added by JS. If JS fails, content stays visible. */
+.js-loaded .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+.js-loaded .reveal.revealed { opacity:1; transform:none; }
+.js-loaded .reveal-left { opacity:0; transform:translateX(-24px); transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+.js-loaded .reveal-left.revealed { opacity:1; transform:none; }
+.js-loaded .reveal-right { opacity:0; transform:translateX(24px); transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+.js-loaded .reveal-right.revealed { opacity:1; transform:none; }
+
+/* ══════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════ */
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 24px; border-radius:var(--rs); font-size:14px; font-weight:600; text-decoration:none; border:none; cursor:pointer; transition:transform .2s,box-shadow .2s,background .2s; line-height:1.2; position:relative; overflow:hidden; }
+.btn::after { content:''; position:absolute; inset:0; background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%); transform:translateX(-200%) skewX(-12deg); transition:none; }
+.btn:hover::after { animation:waveIn .5s ease; }
+.btn:hover { transform:translateY(-2px); }
+.btn-teal  { background:linear-gradient(135deg,var(--teal),var(--teal-d)); color:#fff; box-shadow:0 4px 16px rgba(10,124,110,.3); }
+.btn-teal:hover  { box-shadow:0 8px 24px rgba(10,124,110,.4); }
+.btn-gold  { background:linear-gradient(135deg,var(--gold),var(--gold-d)); color:#fff; box-shadow:0 4px 16px rgba(232,160,32,.35); }
+.btn-gold:hover  { box-shadow:0 8px 24px rgba(232,160,32,.45); }
+.btn-out   { background:transparent; color:#fff; border:2px solid rgba(255,255,255,.7); }
+.btn-out:hover   { background:rgba(255,255,255,.15); border-color:#fff; }
+.btn-out-dark { background:transparent; color:var(--teal); border:2px solid var(--teal); }
+.btn-out-dark:hover { background:var(--teal-l); }
+.btn-wa    { background:#25d366; color:#fff; box-shadow:0 4px 16px rgba(37,211,102,.3); }
+.btn-wa:hover    { background:#1ebe57; box-shadow:0 8px 24px rgba(37,211,102,.4); }
+.btn-white { background:#fff; color:var(--teal); display:flex; align-items:center; justify-content:center; gap:8px; padding:12px 18px; border-radius:var(--rs); font-size:13px; font-weight:600; text-decoration:none; transition:.2s; }
+.btn-white:hover { background:var(--teal-l); transform:translateY(-1px); }
+.btn-full  { width:100%; }
+
+/* ══════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════ */
+#nav {
+  position:fixed; top:0; left:0; right:0; z-index:999;
+  height:66px; display:flex; align-items:center; padding:0 24px;
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+  transition:background .4s, box-shadow .4s, border-color .4s;
+  border-bottom:1px solid transparent;
+  background:linear-gradient(180deg,rgba(6,70,60,.6) 0%,transparent 100%);
+}
+#nav.scrolled {
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom-color:var(--gray2);
+  box-shadow:0 2px 14px rgba(10,124,110,.09);
+}
+.nav-in { width:100%; max-width:1160px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.logo { display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0; }
+.logo-box { width:42px; height:42px; border-radius:10px; background:linear-gradient(135deg,var(--teal),var(--gold)); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:20px; font-weight:900; color:#fff; flex-shrink:0; box-shadow:0 4px 12px rgba(10,124,110,.3); }
+.logo-txt { display:flex; flex-direction:column; line-height:1.1; }
+.logo-name { font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:#fff; transition:color .4s; }
+.logo-sub  { font-size:10px; color:rgba(255,255,255,.6); text-transform:uppercase; letter-spacing:.06em; transition:color .4s; }
+#nav.scrolled .logo-name { color:var(--teal); }
+#nav.scrolled .logo-sub  { color:var(--gray4); }
+
+.nav-links { display:flex; align-items:center; gap:4px; list-style:none; }
+.nav-links a { text-decoration:none; color:rgba(255,255,255,.85); font-size:13px; font-weight:500; padding:7px 13px; border-radius:7px; transition:all .2s; white-space:nowrap; }
+.nav-links a:hover { color:#fff; background:rgba(255,255,255,.15); }
+#nav.scrolled .nav-links a { color:var(--gray6); }
+#nav.scrolled .nav-links a:hover { color:var(--teal); background:var(--teal-l); }
+.nav-cta { background:var(--gold) !important; color:#fff !important; box-shadow:0 3px 10px rgba(232,160,32,.35); }
+.nav-cta:hover { background:var(--gold-d) !important; }
+
+.ham { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; flex-shrink:0; }
+.ham span { width:24px; height:2px; background:#fff; border-radius:2px; transition:.3s; display:block; }
+#nav.scrolled .ham span { background:var(--teal); }
+.ham.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+.ham.open span:nth-child(2) { opacity:0; }
+.ham.open span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+#drawer {
+  display:none; position:fixed; top:66px; left:0; right:0; z-index:998;
+  background:#fff; border-bottom:1px solid var(--gray2);
+  padding:12px 20px 20px; flex-direction:column; gap:4px;
+  box-shadow:0 10px 30px rgba(10,124,110,.12);
+  animation:fadeUp .2s ease;
+}
+#drawer.open { display:flex; }
+#drawer a { text-decoration:none; color:var(--gray6); font-size:15px; font-weight:500; padding:11px 14px; border-radius:8px; transition:.2s; }
+#drawer a:hover { background:var(--teal-l); color:var(--teal); }
+#drawer .d-cta { background:var(--gold); color:#fff !important; text-align:center; margin-top:8px; border-radius:var(--rs); font-weight:700; }
+
+/* ══════════════════════════════════════
+   TICKER
+══════════════════════════════════════ */
+.ticker-wrap { background:linear-gradient(90deg,var(--teal-d),var(--teal),var(--teal-mid)); padding:12px 0; overflow:hidden; position:relative; z-index:10; }
+.ticker-track { display:flex; width:max-content; animation:tick 30s linear infinite; -webkit-animation:tick 30s linear infinite; }
+.ticker-track:hover { animation-play-state:paused; }
+.tick-item { display:flex; align-items:center; gap:9px; color:#fff; font-size:13px; font-weight:500; padding:0 38px; white-space:nowrap; }
+.tick-dot { width:5px; height:5px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+/* ══════════════════════════════════════
+   HERO  — TALL, IMMERSIVE
+══════════════════════════════════════ */
+#hero {
+  min-height:110vh;
+  display:flex; flex-direction:column; justify-content:center;
+  position:relative; overflow:hidden;
+  padding:120px 0 80px;
+}
+
+/* ── Background image placeholder (swap src to real photo) ── */
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+  background-image:
+    /* placeholder SVG pattern that looks like a blurred medical/clean interior */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3CradialGradient id='rg1' cx='70%25' cy='40%25' r='60%25'%3E%3Cstop offset='0' stop-color='%230d9e8d' stop-opacity='0.18'/%3E%3Cstop offset='1' stop-color='%23065a4f' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='rg2' cx='20%25' cy='80%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23e8a020' stop-opacity='0.14'/%3E%3Cstop offset='1' stop-color='%23065a4f' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23rg1)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23rg2)'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Deep gradient overlay — gives dark teal → transparent look */
+.hero-overlay {
+  position:absolute; inset:0; z-index:1;
+  background:
+    linear-gradient(105deg,
+      rgba(6,90,79,.94) 0%,
+      rgba(6,90,79,.82) 38%,
+      rgba(10,124,110,.5) 65%,
+      rgba(13,158,141,.2) 100%);
+}
+
+/* subtle animated grid lines */
+.hero-grid-lines {
+  position:absolute; inset:0; z-index:2; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  animation:fadeIn 1.5s ease both;
+}
+
+/* floating particle dots */
+.hero-particles { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.hero-particles span {
+  position:absolute; border-radius:50%;
+  background:rgba(255,255,255,.12);
+  animation:fadeIn 2s ease both;
+}
+.hero-particles span:nth-child(1)  { width:180px;height:180px; top:10%;  left:5%;   animation-delay:.3s;  }
+.hero-particles span:nth-child(2)  { width:90px; height:90px;  top:25%;  right:12%; animation-delay:.6s;  }
+.hero-particles span:nth-child(3)  { width:130px;height:130px; bottom:15%;left:20%;  animation-delay:.9s;  }
+.hero-particles span:nth-child(4)  { width:60px; height:60px;  bottom:30%;right:5%;  animation-delay:1.1s; }
+.hero-particles span:nth-child(5)  { width:220px;height:220px; top:-5%;  right:30%; opacity:.06; animation-delay:.4s; }
+
+/* gold accent bar on left */
+.hero-accent-bar {
+  position:absolute; left:0; top:15%; bottom:15%; width:5px; z-index:3;
+  background:linear-gradient(180deg,transparent,var(--gold),transparent);
+  animation:fadeIn 1.2s .5s ease both;
+}
+
+.hero-content { position:relative; z-index:5; width:100%; }
+.hero-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+
+/* Left column */
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.1);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  border-radius:100px; padding:6px 16px;
+  font-size:12px; color:rgba(255,255,255,.9); font-weight:600;
+  margin-bottom:20px;
+  animation:fadeUp .6s .15s ease forwards;
+}
+.eyebrow-dot { width:7px; height:7px; background:var(--gold); border-radius:50%; animation:pulse 2s infinite; flex-shrink:0; }
+
+.hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,5.5vw,72px);
+  font-weight:900; line-height:1.08;
+  color:#fff; margin-bottom:22px;
+  animation:fadeUp .6s .2s ease forwards;
+}
+.hero-title .t-gold  { color:var(--gold); display:block; font-style:italic; }
+.hero-title .t-white { color:#fff; }
+
+.hero-desc {
+  font-size:17px; color:rgba(255,255,255,.78); line-height:1.8;
+  margin-bottom:36px;
+  animation:fadeUp .6s .3s ease forwards;
+  max-width:480px;
+}
+
+.hero-btns { display:flex; flex-wrap:wrap; gap:12px; animation:fadeUp .6s .4s ease forwards; }
+
+.hero-divider {
+  width:48px; height:3px; border-radius:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  margin:36px 0 28px;
+  animation:fadeUp .6s .45s ease forwards;
+}
+
+.hero-stats {
+  display:flex; gap:36px; flex-wrap:wrap;
+  animation:fadeUp .6s .5s ease forwards;
+}
+.stat { position:relative; }
+.stat::after { content:''; position:absolute; right:-18px; top:4px; bottom:4px; width:1px; background:rgba(255,255,255,.2); }
+.stat:last-child::after { display:none; }
+.stat-num {
+  font-family:'Playfair Display',serif;
+  font-size:30px; font-weight:900; color:#fff; line-height:1;
+}
+.stat-num .stat-plus { color:var(--gold); }
+.stat-lbl { font-size:11px; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.07em; margin-top:4px; }
+
+/* Right column — floating card stack */
+.hero-cards {
+  position:relative; height:440px;
+  display:flex; align-items:center; justify-content:center;
+  animation:slideLeft .7s .3s ease forwards;
+}
+.hcard {
+  position:absolute; background:rgba(255,255,255,.97);
+  border-radius:20px;
+  padding:22px 22px;
+  backdrop-filter:blur(10px);
+}
+.hcard-main {
+  width:280px; z-index:3;
+  border-top:4px solid var(--teal);
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.hcard-a {
+  width:185px; top:18px; right:10px; z-index:2;
+  border-left:4px solid var(--gold);
+  transform:rotate(4deg);
+  box-shadow:0 12px 36px rgba(0,0,0,.2);
+  animation:flt1 4.5s ease-in-out infinite;
+}
+.hcard-b {
+  width:168px; bottom:18px; left:10px; z-index:2;
+  border-left:4px solid var(--teal-mid);
+  transform:rotate(-4deg);
+  box-shadow:0 12px 36px rgba(0,0,0,.2);
+  animation:flt2 5.5s ease-in-out infinite;
+}
+.hc-ico  { font-size:30px; margin-bottom:10px; }
+.hc-ttl  { font-weight:700; font-size:15px; color:var(--text); margin-bottom:5px; }
+.hc-dsc  { font-size:12px; color:var(--gray6); line-height:1.55; }
+.hc-mono { font-family:'DM Mono',monospace; font-size:11px; color:var(--teal); margin-top:9px; }
+
+/* Hero scroll indicator */
+.hero-scroll {
+  position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+  z-index:6; display:flex; flex-direction:column; align-items:center; gap:6px;
+  color:rgba(255,255,255,.45); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  animation:fadeIn 1.5s 1s ease both;
+}
+.scroll-wheel {
+  width:22px; height:36px; border:2px solid rgba(255,255,255,.3);
+  border-radius:11px; display:flex; justify-content:center; padding-top:5px;
+}
+.scroll-dot {
+  width:4px; height:8px; border-radius:2px; background:var(--gold);
+  animation:scrollDot 2s ease-in-out infinite;
+}
+@keyframes scrollDot { 0%{transform:translateY(0);opacity:1} 80%{transform:translateY(10px);opacity:0} 100%{transform:translateY(0);opacity:0} }
+
+/* ══════════════════════════════════════
+   ABOUT
+══════════════════════════════════════ */
+#about { background:var(--white); position:relative; z-index:1; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+.map-wrap { border-radius:var(--r); overflow:hidden; box-shadow:var(--shb); border:4px solid var(--white); }
+.map-wrap iframe { width:100%; height:310px; border:none; display:block; }
+.addr-card { background:var(--white); border-radius:var(--r); padding:18px 20px; box-shadow:var(--sh); border-left:5px solid var(--gold); margin-top:14px; }
+.addr-lbl { font-size:11px; color:var(--gray4); text-transform:uppercase; letter-spacing:.08em; margin-bottom:5px; }
+.addr-txt { font-size:14px; font-weight:600; color:var(--text); line-height:1.5; }
+.addr-ph  { font-family:'DM Mono',monospace; color:var(--teal); font-size:15px; margin-top:8px; font-weight:500; }
+
+.about-feats { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:28px; }
+.af { display:flex; align-items:flex-start; gap:12px; padding:15px; border:1px solid var(--gray2); border-radius:var(--rs); background:var(--white); transition:.25s; }
+.af:hover { border-color:var(--teal); box-shadow:var(--sh); transform:translateY(-2px); }
+.af-ico { width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; }
+.af-ico.tl { background:var(--teal-l); }
+.af-ico.gd { background:var(--gold-l); }
+.af-name { font-size:13px; font-weight:700; color:var(--text); }
+.af-dsc  { font-size:12px; color:var(--gray6); margin-top:2px; line-height:1.4; }
+
+.hours-list { margin-top:20px; display:flex; flex-direction:column; gap:7px; }
+.hr-row { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:var(--gray1); border-radius:var(--rs); border:1px solid var(--gray2); font-size:13px; gap:6px; flex-wrap:wrap; transition:.2s; }
+.hr-row:hover { border-color:var(--teal); background:var(--teal-l); }
+.hr-day  { font-weight:600; color:var(--text); }
+.hr-time { font-family:'DM Mono',monospace; color:var(--teal); font-size:12px; }
+.hr-row.closed { opacity:.55; }
+.hr-row.closed:hover { background:var(--gray1); border-color:var(--gray2); }
+
+/* ══════════════════════════════════════
+   SERVICES
+══════════════════════════════════════ */
+#services { background:var(--bg); position:relative; z-index:1; }
+.svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.svc-card {
+  border:1px solid var(--gray2); border-radius:var(--r); padding:30px 24px;
+  transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s;
+  position:relative; overflow:hidden; background:var(--white);
+}
+.svc-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  transform:scaleX(0); transform-origin:left; transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.svc-card:hover::before { transform:scaleX(1); }
+.svc-card:hover { box-shadow:var(--shb); transform:translateY(-6px); border-color:transparent; }
+.svc-ico { width:54px; height:54px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:25px; margin-bottom:18px; }
+.svc-ico.tl { background:var(--teal-l); }
+.svc-ico.gd { background:var(--gold-l); }
+.svc-ico.gr { background:var(--green-l); }
+.svc-ttl { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--text); margin-bottom:8px; }
+.svc-dsc { font-size:13px; color:var(--gray6); line-height:1.75; }
+.svc-list { list-style:none; margin-top:14px; }
+.svc-list li { font-size:12px; color:var(--gray6); padding:5px 0; display:flex; gap:8px; border-bottom:1px dashed var(--gray2); }
+.svc-list li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; }
+
+/* ══════════════════════════════════════
+   DOCTORS
+══════════════════════════════════════ */
+#doctors { background:var(--white); }
+.doc-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; min-width:0; }
+.doc-card { min-width:0; word-break:break-word; }
+.doc-card {
+  background:var(--white); border-radius:var(--r); padding:22px 16px; text-align:center;
+  border:1px solid var(--gray2); transition:.3s cubic-bezier(.22,1,.36,1); position:relative;
+}
+.doc-card:hover { box-shadow:var(--shb); transform:translateY(-6px); border-color:var(--teal-l); }
+.doc-av { width:68px; height:68px; border-radius:50%; margin:0 auto 13px; position:relative; display:flex; align-items:center; justify-content:center; }
+.doc-av-bg { width:68px; height:68px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; }
+.doc-av-bg.tl { background:var(--teal-l); }
+.doc-av-bg.gd { background:var(--gold-l); }
+.doc-av-bg.pu { background:#f0e8ff; }
+.doc-av-bg.gr { background:var(--green-l); }
+.doc-av-bg.pk { background:#fde8f0; }
+.doc-ring { position:absolute; inset:-5px; border-radius:50%; border:2px dashed var(--teal); opacity:.2; animation:spin 16s linear infinite; }
+.doc-num  { position:absolute; top:-4px; left:-4px; width:22px; height:22px; background:var(--teal); color:#fff; border-radius:50%; font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+.doc-name  { font-family:'Playfair Display',serif; font-size:13px; font-weight:700; color:var(--text); line-height:1.3; }
+.doc-qual  { font-family:'DM Mono',monospace; font-size:10px; color:var(--gray4); margin:3px 0 6px; line-height:1.4; }
+.doc-spec  { font-size:10px; color:var(--teal-d); font-weight:700; background:var(--teal-l); padding:3px 8px; border-radius:4px; display:inline-block; margin-bottom:10px; line-height:1.4; }
+.doc-sch   { font-size:11px; color:var(--gray6); line-height:1.65; border-top:1px dashed var(--gray2); padding-top:9px; }
+.doc-sch strong { color:var(--teal); display:block; }
+.doc-note { margin-top:26px; padding:15px 22px; background:var(--teal-l); border-radius:var(--rs); color:var(--teal-d); font-size:13px; font-weight:500; text-align:center; border-left:4px solid var(--teal); }
+
+/* ── Facilities strip ── */
+.fac-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:40px; }
+.fac-card { background:linear-gradient(135deg,var(--teal-l),#d4f0ec); border-radius:var(--r); padding:20px; display:flex; align-items:flex-start; gap:14px; border:1px solid rgba(10,124,110,.12); transition:.25s; }
+.fac-card:hover { transform:translateY(-3px); box-shadow:var(--sh); }
+.fac-ico { font-size:28px; flex-shrink:0; }
+.fac-ttl { font-size:14px; font-weight:700; color:var(--teal-d); margin-bottom:4px; }
+.fac-dsc { font-size:12px; color:var(--gray6); line-height:1.6; }
+
+/* ══════════════════════════════════════
+   TRUST
+══════════════════════════════════════ */
+#trust {
+  background:linear-gradient(135deg,var(--teal-d) 0%,var(--teal) 50%,var(--teal-mid) 100%);
+  color:#fff; position:relative; overflow:hidden;
+}
+#trust::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+}
+#trust .lbl  { color:rgba(255,255,255,.55); }
+#trust .h2   { color:#fff; }
+#trust .h2 span { color:var(--gold); }
+#trust .lead { color:rgba(255,255,255,.7); }
+.trust-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.tc {
+  background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r); padding:28px 22px; transition:.3s;
+  position:relative; overflow:hidden;
+}
+.tc::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),transparent); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
+.tc:hover::after { transform:scaleX(1); }
+.tc:hover { background:rgba(255,255,255,.15); transform:translateY(-5px); box-shadow:0 14px 40px rgba(0,0,0,.22); }
+.tc-ico  { font-size:34px; margin-bottom:16px; }
+.tc-ttl  { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#fff; margin-bottom:10px; }
+.tc-dsc  { font-size:13px; color:rgba(255,255,255,.7); line-height:1.75; }
+
+/* ══════════════════════════════════════
+   PRESCRIPTION
+══════════════════════════════════════ */
+#rx { background:var(--bg); }
+.rx-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+.rx-visual {
+  background:linear-gradient(135deg,var(--teal-l),#d4f0ec);
+  border:2px dashed rgba(10,124,110,.22); border-radius:var(--r);
+  padding:40px 30px; text-align:center;
+}
+.rx-big { font-size:62px; margin-bottom:14px; animation:fadeIn 1s ease both; }
+.rx-vis-ttl { font-family:'Playfair Display',serif; font-size:23px; font-weight:700; color:var(--teal); margin-bottom:10px; }
+.rx-vis-dsc { font-size:13px; color:var(--gray6); line-height:1.7; margin-bottom:24px; }
+.rx-methods { display:flex; gap:12px; justify-content:center; }
+.rx-mth { flex:1; max-width:160px; background:#fff; border-radius:var(--rs); padding:16px 12px; border:1px solid var(--gray2); text-align:center; cursor:pointer; text-decoration:none; transition:.25s; }
+.rx-mth:hover { border-color:var(--teal); box-shadow:var(--sh); transform:translateY(-3px); }
+.rx-mth-ico  { font-size:28px; margin-bottom:7px; }
+.rx-mth-name { font-size:12px; font-weight:700; color:var(--text); }
+.rx-mth-sub  { font-size:11px; color:var(--gray4); margin-top:3px; }
+
+.rx-form h3 { font-family:'Playfair Display',serif; font-size:25px; font-weight:700; color:var(--text); margin-bottom:6px; }
+.rx-form p  { font-size:14px; color:var(--gray6); line-height:1.7; margin-bottom:22px; }
+.form-group  { display:flex; flex-direction:column; gap:5px; margin-bottom:14px; }
+.form-lbl    { font-size:12px; font-weight:600; color:var(--gray6); }
+.form-inp    { padding:12px 15px; border:1.5px solid var(--gray2); border-radius:var(--rs); font-size:14px; font-family:'DM Sans',sans-serif; outline:none; transition:border-color .2s, box-shadow .2s; background:#fff; }
+.form-inp:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(10,124,110,.1); }
+.form-row    { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.upload-area { border:2px dashed var(--gray2); border-radius:var(--rs); padding:24px; text-align:center; cursor:pointer; transition:.25s; background:#fff; }
+.upload-area:hover { border-color:var(--teal); background:var(--teal-l); }
+.upload-area input { display:none; }
+.ua-ico  { font-size:28px; margin-bottom:7px; }
+.ua-txt  { font-size:13px; color:var(--gray6); }
+.ua-txt strong { color:var(--teal); cursor:pointer; }
+.ua-hint { font-size:11px; color:var(--gray4); margin-top:4px; }
+.form-note { font-size:12px; color:var(--gray4); background:var(--gray1); border-radius:var(--rs); padding:11px 13px; line-height:1.65; margin-bottom:14px; }
+
+/* ══════════════════════════════════════
+   CONTACT
+══════════════════════════════════════ */
+#contact { background:var(--white); position:relative; z-index:1; }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+.cinfo { display:flex; flex-direction:column; gap:12px; }
+.ci { display:flex; align-items:flex-start; gap:14px; padding:18px; border-radius:var(--rs); border:1px solid var(--gray2); background:var(--bg); transition:.25s; }
+.ci:hover { border-color:var(--teal); box-shadow:var(--sh); transform:translateX(4px); }
+.ci-ico { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:19px; flex-shrink:0; }
+.ci-ico.tl { background:var(--teal-l); }
+.ci-ico.gd { background:var(--gold-l); }
+.ci-lbl { font-size:11px; color:var(--gray4); text-transform:uppercase; letter-spacing:.08em; margin-bottom:3px; }
+.ci-val { font-size:14px; font-weight:600; color:var(--text); }
+.ci-sub { font-size:12px; color:var(--gray6); margin-top:2px; }
+
+.cta-box {
+  background:linear-gradient(135deg,var(--teal-d),var(--teal));
+  border-radius:var(--r); padding:30px; color:#fff; text-align:center;
+  position:relative; overflow:hidden;
+}
+.cta-box::before { content:''; position:absolute; top:-50%; right:-20%; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,.05); }
+.cta-box h3 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; margin-bottom:8px; }
+.cta-box p  { font-size:13px; opacity:.8; margin-bottom:20px; line-height:1.65; }
+.cta-btns   { display:flex; flex-direction:column; gap:10px; position:relative; }
+.em-note { margin-top:16px; padding:16px; background:var(--green-l); border-radius:var(--rs); border-left:4px solid var(--green); }
+.em-ttl { font-size:13px; font-weight:700; color:var(--green-d); margin-bottom:4px; }
+.em-dsc { font-size:12px; color:var(--gray6); line-height:1.65; }
+.em-dsc strong { color:var(--teal); }
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer { background:var(--gray8); color:rgba(255,255,255,.6); padding:56px 0 26px; padding-bottom: max(26px, env(safe-area-inset-bottom)); }
+.foot-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:44px; margin-bottom:44px; }
+.foot-brand .flogo { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+.foot-brand .flogo-box { width:42px; height:42px; border-radius:10px; background:linear-gradient(135deg,var(--teal),var(--gold)); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:19px; font-weight:900; color:#fff; flex-shrink:0; }
+.foot-brand .flogo-name { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:#fff; }
+.foot-brand p { font-size:13px; line-height:1.75; max-width:240px; }
+.foot-brand .fph { font-family:'DM Mono',monospace; font-size:12px; color:rgba(255,255,255,.35); margin-top:12px; }
+.foot-col h4 { color:#fff; font-size:14px; font-weight:700; margin-bottom:15px; }
+.foot-col ul { list-style:none; display:flex; flex-direction:column; gap:9px; }
+.foot-col ul li a { font-size:13px; color:rgba(255,255,255,.5); text-decoration:none; transition:.2s; }
+.foot-col ul li a:hover { color:var(--gold); }
+.foot-bottom { border-top:1px solid rgba(255,255,255,.08); padding-top:22px; display:flex; justify-content:space-between; align-items:center; font-size:12px; flex-wrap:wrap; gap:10px; }
+.foot-legal { display:flex; gap:18px; }
+.foot-legal a { color:rgba(255,255,255,.35); text-decoration:none; transition:.2s; }
+.foot-legal a:hover { color:rgba(255,255,255,.8); }
+
+/* ══════════════════════════════════════
+   FLOATING CTA
+══════════════════════════════════════ */
+#floatcall {
+  position:fixed; bottom:26px; right:22px; z-index:990;
+  background:linear-gradient(135deg,var(--teal),var(--teal-d));
+  color:#fff; text-decoration:none;
+  display:flex; align-items:center; gap:9px;
+  padding:13px 22px; border-radius:100px;
+  font-size:14px; font-weight:700;
+  box-shadow:0 6px 28px rgba(10,124,110,.45);
+  animation:fbounce 3s ease-in-out infinite;
+  transition:box-shadow .2s;
+}
+#floatcall:hover { box-shadow:0 10px 38px rgba(10,124,110,.6); animation:none; transform:scale(1.04) translateY(-2px); }
+
+#backtop { position:fixed; bottom:26px; left:22px; z-index:900; background:var(--teal-l); color:var(--teal); border:none; cursor:pointer; width:44px; height:44px; border-radius:50%; font-size:18px; display:flex; align-items:center; justify-content:center; box-shadow:var(--sh); opacity:0; pointer-events:none; transition:.3s; }
+#backtop.vis { opacity:1; pointer-events:all; }
+#backtop:hover { background:var(--teal); color:#fff; }
+
+/* ══════════════════════════════════════
+   TABLET  ≤ 920px
+══════════════════════════════════════ */
+@media (max-width:920px) {
+  .nav-links { display:none; }
+  .ham       { display:flex; }
+
+  .hero-layout  { grid-template-columns:1fr; text-align:center; gap:0; }
+  .hero-cards   { display:none; }
+  .hero-btns    { justify-content:center; }
+  .hero-stats   { justify-content:center; }
+  .hero-desc    { max-width:100%; }
+  .stat::after  { display:none; }
+
+  .about-grid   { grid-template-columns:1fr; gap:36px; }
+  .about-feats  { grid-template-columns:1fr 1fr; }
+  .svc-grid     { grid-template-columns:1fr 1fr; }
+  .doc-grid     { grid-template-columns:repeat(3,1fr); }
+  .trust-grid   { grid-template-columns:1fr 1fr; }
+  .fac-strip    { grid-template-columns:1fr 1fr; }
+  .rx-grid      { grid-template-columns:1fr; gap:36px; }
+  .contact-grid { grid-template-columns:1fr; gap:36px; }
+  .foot-grid    { grid-template-columns:1fr 1fr; gap:32px; }
+}
+
+/* ══════════════════════════════════════
+   MOBILE  ≤ 600px
+══════════════════════════════════════ */
+@media (max-width:600px) {
+
+  /* ── Global ── */
+  .sec  { padding:52px 0; }
+  .wrap { padding:0 16px; }
+  .h2   { font-size:clamp(22px,7vw,34px); margin-bottom:10px; }
+  .lead { font-size:14px; margin-bottom:28px; }
+
+  /* ── Loader ── */
+  .loader-brand { font-size:18px; }
+
+  /* ── Navbar ── */
+  #nav  { height:58px; padding:0 16px; }
+  .logo-box { width:36px; height:36px; font-size:16px; }
+  .logo-name { font-size:13px; }
+  .logo-sub  { display:none; }
+  #drawer { top:58px; padding:10px 14px 18px; }
+  #drawer a { font-size:14px; padding:10px 12px; }
+
+  /* ── Ticker ── */
+  .ticker-wrap { padding:9px 0; }
+  .tick-item   { font-size:12px; padding:0 24px; }
+
+  /* ── Hero ── */
+  #hero { padding:80px 0 56px; min-height:100svh; }
+  .hero-eyebrow  { font-size:11px; padding:5px 12px; }
+  .hero-title    { font-size:clamp(32px,9vw,48px); }
+  .hero-desc     { font-size:15px; }
+  .hero-btns     { flex-direction:column; align-items:stretch; gap:10px; }
+  .hero-btns .btn{ width:100%; font-size:15px; padding:15px 20px; }
+  .hero-stats    { gap:20px; flex-wrap:wrap; justify-content:center; }
+  .stat-num      { font-size:24px; }
+  .stat-lbl      { font-size:10px; }
+  .hero-divider  { margin:24px auto 20px; }
+  .hero-scroll   { display:none; }
+
+  /* ── About ── */
+  .about-grid   { grid-template-columns:1fr; gap:28px; }
+  .about-feats  { grid-template-columns:1fr; gap:10px; }
+  .map-wrap iframe { height:220px; }
+  .addr-card    { padding:14px 16px; }
+  .hours-list   { gap:6px; }
+  .hr-row       { font-size:12px; padding:9px 12px; }
+
+  /* ── Services ── */
+  .svc-grid     { grid-template-columns:1fr; gap:14px; }
+  .svc-card     { padding:22px 18px; }
+  .svc-ttl      { font-size:16px; }
+
+  /* ── Doctors ── */
+  .doc-grid     { grid-template-columns:1fr 1fr; gap:12px; }
+  .doc-card     { padding:16px 12px; }
+  .doc-av       { width:56px; height:56px; }
+  .doc-av-bg    { width:56px; height:56px; font-size:22px; }
+  .doc-name     { font-size:12px; }
+  .doc-qual     { font-size:9px; }
+  .fac-strip    { grid-template-columns:1fr; gap:12px; }
+  .fac-card     { padding:16px; }
+
+  /* ── Trust ── */
+  .trust-grid   { grid-template-columns:1fr; gap:14px; }
+  .tc           { padding:22px 18px; }
+  .tc-ttl       { font-size:16px; }
+
+  /* ── Prescription form ── */
+  .rx-grid      { grid-template-columns:1fr; gap:28px; }
+  .rx-visual    { padding:28px 18px; }
+  .rx-big       { font-size:48px; }
+  .rx-vis-ttl   { font-size:18px; }
+  .rx-methods   { flex-direction:row; flex-wrap:wrap; }
+  .rx-mth       { flex:1; min-width:120px; }
+  .form-row     { grid-template-columns:1fr; }
+  .form-inp     { font-size:16px; /* prevents iOS zoom */ }
+  .upload-area  { padding:18px 14px; }
+
+  /* ── Contact ── */
+  .contact-grid { grid-template-columns:1fr; gap:28px; }
+  .ci           { padding:14px; }
+  .ci-ico       { width:38px; height:38px; font-size:16px; }
+  .cta-box      { padding:24px 18px; }
+
+  /* ── Footer ── */
+  .foot-grid    { grid-template-columns:1fr; gap:24px; }
+  .foot-bottom  { flex-direction:column; text-align:center; gap:8px; }
+  .foot-legal   { justify-content:center; flex-wrap:wrap; gap:12px; }
+  footer        { padding:40px 0 20px; }
+
+  /* ── Floating buttons ── */
+  #floatwa      { bottom:80px; right:16px; width:46px; height:46px; font-size:20px; }
+  #floatcall    { bottom:20px; right:16px; padding:0; border-radius:50%; width:52px; height:52px; justify-content:center; gap:0; font-size:20px; }
+  #floatcall .fcall-txt { display:none; }
+  #backtop      { bottom:20px; left:16px; width:40px; height:40px; font-size:16px; }
+
+  /* ── Touch targets ── */
+  .btn { min-height:48px; }
+  a, button { -webkit-tap-highlight-color:rgba(10,124,110,.15); }
+}
+
+/* ══════════════════════════════════════
+   TINY  ≤ 380px
+══════════════════════════════════════ */
+@media (max-width:380px) {
+  .wrap         { padding:0 12px; }
+  .hero-title   { font-size:clamp(28px,10vw,40px); }
+  .hero-stats   { flex-direction:column; gap:10px; align-items:center; }
+  .doc-grid     { grid-template-columns:1fr; }
+  .rx-methods   { flex-direction:column; }
+  .rx-mth       { max-width:100%; }
+  .foot-grid    { grid-template-columns:1fr; }
+}
+
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Pharmacy",
+  "name": "Mira Medical Hall",
+  "description": "100% genuine allopathic medicines, specialist doctors, ECG 24/7, pathology lab at Gaighata Thana More.",
+  "url": "https://miramedicalhall.in",
+  "telephone": ["+919093210673", "+919932145345"],
+  "email": "sbose0972@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Gaighata Thana More, In Front of the Hospital",
+    "addressLocality": "Gaighata",
+    "addressRegion": "West Bengal",
+    "postalCode": "743249",
+    "addressCountry": "IN"
+  },
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"06:00","closes":"21:00"}
+  ],
+  "priceRange": "₹"
+}
+</script>
+</head>
+<body>
+
+<!-- ══ PAGE LOADER ══ -->
+<div id="page-loader" role="status" aria-label="Loading Mira Medical Hall">
+  <div class="loader-cross">
+    <div class="loader-ring2"></div>
+    <div class="loader-ring"></div>
+  </div>
+  <div>
+    <div class="loader-brand">Mira <span>Medical Hall</span></div>
+    <div class="loader-sub" style="text-align:center;margin-top:4px;">Gaighata's Trusted Pharmacy</div>
+  </div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-dots"><span></span><span></span><span></span></div>
+</div>
+
+<!-- ██ NAVBAR ██ -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#hero" class="logo">
+      <div class="logo-box">M</div>
+      <div class="logo-txt">
+        <span class="logo-name">Mira Medical Hall</span>
+        <span class="logo-sub">Pharmacy &amp; Consultation</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#doctors">Doctor Schedule</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#rx" class="nav-cta">📋 Upload Rx</a></li>
+    </ul>
+    <button class="ham" id="ham" onclick="toggleDrawer()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div id="drawer">
+  <a href="#hero"     onclick="closeDrawer()">🏠 Home</a>
+  <a href="#about"    onclick="closeDrawer()">ℹ️ About Us</a>
+  <a href="#doctors"  onclick="closeDrawer()">👨‍⚕️ Doctor Schedule</a>
+  <a href="#services" onclick="closeDrawer()">💊 Services</a>
+  <a href="#rx"       onclick="closeDrawer()">📋 Upload Prescription</a>
+  <a href="#contact"  onclick="closeDrawer()">📞 Contact Us</a>
+  <a href="tel:+919093210673" class="d-cta" onclick="closeDrawer()">📞 Call: +91 90932 10673</a>
+</div>
+
+<!-- ██ HERO ██ -->
+<section id="hero">
+
+  <!-- Swap this background-image URL to a real pharmacy/medical interior photo -->
+  <div class="hero-bg" style="
+    background-image:
+      url('https://images.unsplash.com/photo-1576671081837-49000212a370?w=1600&q=80'),
+      linear-gradient(135deg,#065a4f,#0a7c6e);
+    background-size:cover;
+    background-position:center 30%;
+  "></div>
+
+  <div class="hero-overlay"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-particles">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="hero-accent-bar"></div>
+
+  <div class="hero-content wrap">
+    <div class="hero-layout">
+
+      <!-- LEFT — text -->
+      <div>
+        <div class="hero-eyebrow">
+          <div class="eyebrow-dot"></div>
+          Open Today &mdash; Gaighata Thana More, North 24 Pgs
+        </div>
+
+        <h1 class="hero-title">
+          <span class="t-white">Your Health,</span>
+          <span class="t-gold">Our Promise.</span>
+          <span class="t-white" style="font-size:.72em;font-weight:700;display:block;margin-top:8px;font-style:normal;opacity:.9;">Mira Medical Hall</span>
+        </h1>
+
+        <p class="hero-desc">
+          100% genuine allopathic medicines, 10 visiting specialist doctors, 24-hour ECG &amp; physiotherapy, and expert pharmacy care — all under one roof at Gaighata Thana More.
+        </p>
+
+        <div class="hero-btns">
+          <a href="tel:+919093210673" class="btn btn-gold">📞 Call: 90932 10673</a>
+          <a href="https://wa.me/919093210673?text=Hello%20Mira%20Medical%20Hall%2C%20I%20need%20assistance." target="_blank" class="btn btn-wa">💬 WhatsApp Us</a>
+          <a href="#contact" class="btn btn-out">📍 Get Directions</a>
+        </div>
+
+        <div class="hero-divider"></div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">10</div>
+            <div class="stat-lbl">Specialist Doctors</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">24<span class="stat-plus">hr</span></div>
+            <div class="stat-lbl">ECG &amp; Physio</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">100<span class="stat-plus">%</span></div>
+            <div class="stat-lbl">Genuine Medicines</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — floating cards (hidden on mobile) -->
+      <div class="hero-cards">
+        <div class="hcard hcard-a">
+          <div class="hc-ico">🩺</div>
+          <div class="hc-ttl">Doctor Visits</div>
+          <div class="hc-dsc">All specialties · Mon–Sun (ex. Tue)</div>
+          <div class="hc-mono">Book via WhatsApp</div>
+        </div>
+        <div class="hcard hcard-main">
+          <div class="hc-ico">💊</div>
+          <div class="hc-ttl">Mira Medical Hall</div>
+          <div class="hc-dsc">Genuine medicines, supplements &amp; surgical equipment from certified distributors.</div>
+          <div style="margin-top:12px;"><span class="tag tag-teal">✓ 100% Certified Genuine</span></div>
+          <div class="hc-mono">📍 Near Gaighata Thanar More</div>
+        </div>
+        <div class="hcard hcard-b">
+          <div class="hc-ico">🧊</div>
+          <div class="hc-ttl">Cold Chain</div>
+          <div class="hc-dsc">Vaccines &amp; insulin stored at safe temps</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll">
+    <div class="scroll-wheel"><div class="scroll-dot"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ██ TICKER ██ -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <div class="tick-item"><div class="tick-dot"></div>100% Genuine Medicines Guaranteed</div>
+    <div class="tick-item"><div class="tick-dot"></div>Open Mon – Sun · Closed Every Tuesday</div>
+    <div class="tick-item"><div class="tick-dot"></div>Doctor Consultations – All Departments</div>
+    <div class="tick-item"><div class="tick-dot"></div>Cold-Chain Storage for Vaccines &amp; Insulin</div>
+    <div class="tick-item"><div class="tick-dot"></div>Call +91 90932 10673 · Near Gaighata Thanar More</div>
+    <div class="tick-item"><div class="tick-dot"></div>Upload Prescription via WhatsApp</div>
+    <div class="tick-item"><div class="tick-dot"></div>100% Genuine Medicines Guaranteed</div>
+    <div class="tick-item"><div class="tick-dot"></div>Open Mon – Sun · Closed Every Tuesday</div>
+    <div class="tick-item"><div class="tick-dot"></div>Doctor Consultations – All Departments</div>
+    <div class="tick-item"><div class="tick-dot"></div>Cold-Chain Storage for Vaccines &amp; Insulin</div>
+    <div class="tick-item"><div class="tick-dot"></div>Call +91 90932 10673 · Near Gaighata Thanar More</div>
+    <div class="tick-item"><div class="tick-dot"></div>Upload Prescription via WhatsApp</div>
+  </div>
+</div>
+
+<!-- ██ ABOUT ██ -->
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal-left">
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14685.2!2d88.73!3d22.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8a00000000001%3A0x1!2sGaighata%2C+West+Bengal!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Mira Medical Hall – Gaighata location"></iframe>
+        </div>
+        <div class="addr-card">
+          <div class="addr-lbl">📍 Our Address</div>
+          <div class="addr-txt">Gaighata Thana More, In Front of the Hospital,<br>North 24 Parganas, West Bengal, India</div>
+          <div class="addr-ph">📞 90932 10673 &nbsp;/&nbsp; 99321 45345</div>
+        </div>
+        <a href="https://maps.google.com/?q=Gaighata+Thana+More+North+24+Parganas+West+Bengal" target="_blank" class="btn btn-teal btn-full" style="margin-top:14px;">🗺️ Open in Google Maps</a>
+      </div>
+      <div class="reveal-right">
+        <div class="lbl">About Us</div>
+        <h2 class="h2">Gaighata's <span>Premier</span><br>Medical Hall</h2>
+        <p style="font-size:15px;color:var(--gray6);line-height:1.8;margin-bottom:0;">Mira Medical Hall has been a cornerstone of healthcare in Gaighata — offering genuine medicines, expert consultations, and compassionate service right in the heart of the community.</p>
+        <div class="about-feats">
+          <div class="af"><div class="af-ico tl">🏥</div><div><div class="af-name">Full Pharmacy</div><div class="af-dsc">Medicines, supplements &amp; surgical gear</div></div></div>
+          <div class="af"><div class="af-ico gd">🩺</div><div><div class="af-name">Doctor Hub</div><div class="af-dsc">Specialists from all departments</div></div></div>
+          <div class="af"><div class="af-ico tl">🧊</div><div><div class="af-name">Cold Chain</div><div class="af-dsc">Safe vaccine &amp; insulin storage</div></div></div>
+          <div class="af"><div class="af-ico gd">✅</div><div><div class="af-name">Certified Stock</div><div class="af-dsc">Authorized distributors only</div></div></div>
+        </div>
+        <div style="margin-top:28px;">
+          <div class="lbl" style="margin-bottom:10px;">⏰ Operating Hours</div>
+          <div class="hours-list">
+            <div class="hr-row"><span class="hr-day">Monday</span><span class="hr-time">6:00 AM – 9:00 PM</span><span class="tag tag-green">Open</span></div>
+            <div class="hr-row closed"><span class="hr-day">Tuesday</span><span class="hr-time">—</span><span class="tag tag-red">Closed</span></div>
+            <div class="hr-row"><span class="hr-day">Wednesday</span><span class="hr-time">6:00 AM – 9:00 PM</span><span class="tag tag-green">Open</span></div>
+            <div class="hr-row"><span class="hr-day">Thursday</span><span class="hr-time">6:00 AM – 9:00 PM</span><span class="tag tag-green">Open</span></div>
+            <div class="hr-row"><span class="hr-day">Friday</span><span class="hr-time">6:00 AM – 9:00 PM</span><span class="tag tag-green">Open</span></div>
+            <div class="hr-row"><span class="hr-day">Saturday</span><span class="hr-time">6:00 AM – 9:00 PM</span><span class="tag tag-green">Open</span></div>
+            <div class="hr-row"><span class="hr-day">Sunday</span><span class="hr-time">6:00 AM – 9:00 PM</span><span class="tag tag-green">Open</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ SERVICES ██ -->
+<section id="services" class="sec">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:48px;">
+      <div class="lbl" style="text-align:center;">What We Offer</div>
+      <h2 class="h2" style="max-width:500px;margin:0 auto 14px;">Complete <span>Healthcare</span> Services</h2>
+      <p class="lead" style="max-width:540px;margin:0 auto;">From genuine medicines to expert doctor consultations — everything your family needs under one roof.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal" style="transition-delay:.05s">
+        <div class="svc-ico tl">💊</div>
+        <div class="svc-ttl">Pharmacy &amp; Medicines</div>
+        <p class="svc-dsc">Extensive inventory of genuine, certified medicines from authorized distributors. Prescription and OTC medicines always in stock.</p>
+        <ul class="svc-list"><li>Prescription Medicines</li><li>OTC &amp; Generic Drugs</li><li>Ayurvedic &amp; Homeopathic</li><li>Vitamins &amp; Supplements</li><li>Baby &amp; Infant Care</li></ul>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.1s">
+        <div class="svc-ico gd">🩺</div>
+        <div class="svc-ttl">Doctor Consultation</div>
+        <p class="svc-dsc">Experienced specialists from all medical departments visit our clinic regularly. Expert guidance without traveling far from Gaighata.</p>
+        <ul class="svc-list"><li>General Medicine</li><li>Cardiology</li><li>Pediatrics</li><li>Orthopedics</li><li>Gynecology &amp; Obstetrics</li></ul>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.15s">
+        <div class="svc-ico gr">🩹</div>
+        <div class="svc-ttl">Surgical Equipment</div>
+        <p class="svc-dsc">Quality surgical instruments, medical devices, and first-aid supplies for home and clinical use.</p>
+        <ul class="svc-list"><li>Surgical Instruments</li><li>Wound Care Supplies</li><li>BP &amp; Sugar Monitors</li><li>Nebulizers &amp; Thermometers</li><li>Mobility Aids</li></ul>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.2s">
+        <div class="svc-ico tl">🧊</div>
+        <div class="svc-ttl">Vaccine &amp; Cold Storage</div>
+        <p class="svc-dsc">Strict cold-chain maintenance ensures vaccines, insulin, and temperature-sensitive medicines stay safe and fully effective.</p>
+        <ul class="svc-list"><li>All Major Vaccines</li><li>Insulin (All Brands)</li><li>Temperature-Controlled Storage</li><li>WHO-Compliant Cold Chain</li></ul>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.25s">
+        <div class="svc-ico gd">📋</div>
+        <div class="svc-ttl">Prescription Services</div>
+        <p class="svc-dsc">Upload your prescription via WhatsApp or our web form. Trained pharmacists verify accuracy and guide dosage.</p>
+        <ul class="svc-list"><li>WhatsApp Rx Upload</li><li>Online Order Processing</li><li>Pharmacist Verification</li><li>Dosage Guidance</li></ul>
+      </div>
+      <div class="svc-card reveal" style="transition-delay:.3s">
+        <div class="svc-ico gr">🌿</div>
+        <div class="svc-ttl">Health &amp; Wellness</div>
+        <p class="svc-dsc">Nutritional supplements, healthcare products, and wellness items for preventive care and day-to-day health.</p>
+        <ul class="svc-list"><li>Protein &amp; Nutritional Supplements</li><li>Diabetic Care Products</li><li>Skincare &amp; Derma Products</li><li>Senior Care Essentials</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ DOCTORS ██ -->
+<section id="doctors" class="sec" style="background:var(--white);">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:44px;">
+      <div class="lbl" style="text-align:center;">Doctor Schedule</div>
+      <h2 class="h2">Our <span>Visiting Specialists</span></h2>
+      <p class="lead" style="margin:0 auto;">10 specialist doctors across all major departments visit Mira Medical Hall regularly — expert care without traveling to the city.</p>
+    </div>
+
+    <div class="doc-grid">
+
+      <!-- 1 -->
+      <div class="doc-card reveal" style="transition-delay:.04s">
+        <div class="doc-av">
+          <div class="doc-av-bg tl">👨‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">1</div>
+        </div>
+        <div class="doc-name">Prof. Dr. Debabrata Mukherjee</div>
+        <div class="doc-qual">M.B.B.S, M.D. (Medicine)</div>
+        <div class="doc-spec">Heart · Sugar · Thyroid · Cardiology</div>
+        <div class="doc-sch"><strong>Every Friday</strong>11:30 AM – 12:30 PM</div>
+      </div>
+
+      <!-- 2 -->
+      <div class="doc-card reveal" style="transition-delay:.08s">
+        <div class="doc-av">
+          <div class="doc-av-bg gd">👨‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">2</div>
+        </div>
+        <div class="doc-name">Dr. Mithun Ray</div>
+        <div class="doc-qual">M.B.B.S, M.D. (General Medicine)</div>
+        <div class="doc-spec">Heart · Sugar · Thyroid · Gastroenterology</div>
+        <div class="doc-sch"><strong>Every Wednesday</strong>11:30 AM – 12:30 PM</div>
+      </div>
+
+      <!-- 3 -->
+      <div class="doc-card reveal" style="transition-delay:.12s">
+        <div class="doc-av">
+          <div class="doc-av-bg pu">👨‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">3</div>
+        </div>
+        <div class="doc-name">Dr. Barun Biswas</div>
+        <div class="doc-qual">M.B.B.S, M.S.</div>
+        <div class="doc-spec">Orthopedic Surgeon</div>
+        <div class="doc-sch"><strong>Every Sunday</strong>6:00 PM – 7:00 PM</div>
+      </div>
+
+      <!-- 4 -->
+      <div class="doc-card reveal" style="transition-delay:.16s">
+        <div class="doc-av">
+          <div class="doc-av-bg gr">👨‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">4</div>
+        </div>
+        <div class="doc-name">Dr. Kapil Ray</div>
+        <div class="doc-qual">M.B.B.S, D.C.H, M.S</div>
+        <div class="doc-spec">Pediatrics &amp; E.N.T.</div>
+        <div class="doc-sch"><strong>Every Thursday</strong>7:00 PM onwards</div>
+      </div>
+
+      <!-- 5 -->
+      <div class="doc-card reveal" style="transition-delay:.2s">
+        <div class="doc-av">
+          <div class="doc-av-bg pk">👩‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">5</div>
+        </div>
+        <div class="doc-name">Dr. Sudip Gain</div>
+        <div class="doc-qual">M.B.B.S, M.S. (Gynae)</div>
+        <div class="doc-spec">Women · Obstetrics · Gynecology</div>
+        <div class="doc-sch"><strong>Every Wednesday</strong>5:30 PM – 6:30 PM</div>
+      </div>
+
+      <!-- 6 -->
+      <div class="doc-card reveal" style="transition-delay:.24s">
+        <div class="doc-av">
+          <div class="doc-av-bg tl">👨‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">6</div>
+        </div>
+        <div class="doc-name">Dr. A. Basu</div>
+        <div class="doc-qual">M.B.B.S, M.D. (Medicine)</div>
+        <div class="doc-spec">Heart · Sugar · Thyroid</div>
+        <div class="doc-sch"><strong>Every Saturday</strong>1:30 PM – 2:30 PM</div>
+      </div>
+
+      <!-- 7 -->
+      <div class="doc-card reveal" style="transition-delay:.28s">
+        <div class="doc-av">
+          <div class="doc-av-bg gd">👨‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">7</div>
+        </div>
+        <div class="doc-name">Dr. S. K. Chowdhury</div>
+        <div class="doc-qual">M.B.B.S, M.S. (Dermatology)</div>
+        <div class="doc-spec">Skin &amp; Sexual Diseases</div>
+        <div class="doc-sch"><strong>Every Sunday</strong>11:00 AM – 12:00 PM</div>
+      </div>
+
+      <!-- 8 -->
+      <div class="doc-card reveal" style="transition-delay:.32s">
+        <div class="doc-av">
+          <div class="doc-av-bg pu">👨‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">8</div>
+        </div>
+        <div class="doc-name">Dr. Diptangshu Mukherjee</div>
+        <div class="doc-qual">M.B.B.S, M.S. (E.N.T.)</div>
+        <div class="doc-spec">Nose · Ear · Throat</div>
+        <div class="doc-sch"><strong>Every Monday</strong>6:30 PM – 7:30 PM</div>
+      </div>
+
+      <!-- 9 -->
+      <div class="doc-card reveal" style="transition-delay:.36s">
+        <div class="doc-av">
+          <div class="doc-av-bg gr">👨‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">9</div>
+        </div>
+        <div class="doc-name">Dr. Bishwajit Ray</div>
+        <div class="doc-qual">D.O.A, D.M.S</div>
+        <div class="doc-spec">Ophthalmology · Eye Specialist</div>
+        <div class="doc-sch"><strong>Every Mon &amp; Fri</strong>11:30 AM – 1:30 PM</div>
+      </div>
+
+      <!-- 10 -->
+      <div class="doc-card reveal" style="transition-delay:.4s">
+        <div class="doc-av">
+          <div class="doc-av-bg pk">👨‍⚕️</div><div class="doc-ring"></div>
+          <div class="doc-num">10</div>
+        </div>
+        <div class="doc-name">Dr. Debanik Sarkar</div>
+        <div class="doc-qual">M.D, M.Sc-Gastro, PGCD (Diabetes)</div>
+        <div class="doc-spec">Gastroenterology &amp; Diabetes</div>
+        <div class="doc-sch"><strong>2nd &amp; 4th Monday</strong>6:30 PM onwards</div>
+      </div>
+
+    </div>
+
+    <div class="doc-note reveal" style="margin-top:28px;">
+      📌 Schedules may vary — call <strong>9093210673 / 9932145345</strong> to confirm visiting hours before visiting.
+    </div>
+
+    <!-- Facilities -->
+    <div class="reveal" style="margin-top:52px;">
+      <div class="lbl" style="text-align:center;margin-bottom:10px;">Facilities &amp; Services</div>
+      <h2 class="h2" style="text-align:center;margin-bottom:32px;">On-Site <span>Diagnostic</span> Services</h2>
+      <div class="fac-strip">
+        <div class="fac-card">
+          <div class="fac-ico">❤️</div>
+          <div>
+            <div class="fac-ttl">ECG &amp; Physiotherapy</div>
+            <div class="fac-dsc">Available 24 hours a day using advanced digital machines for accurate cardiac and physiotherapy diagnostics.</div>
+          </div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-ico">💨</div>
+          <div>
+            <div class="fac-ttl">Nebulizer</div>
+            <div class="fac-dsc">Nebulization therapy available daily for respiratory conditions, asthma, and breathing difficulties.</div>
+          </div>
+        </div>
+        <div class="fac-card">
+          <div class="fac-ico">🔬</div>
+          <div>
+            <div class="fac-ttl">Pathology Lab</div>
+            <div class="fac-dsc">Complete diagnostic tests including blood, urine, stool, and other essential pathology tests available on-site.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ██ TRUST ██ -->
+<section id="trust" class="sec">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:44px;">
+      <div class="lbl" style="text-align:center;">Peace of Mind</div>
+      <h2 class="h2" style="color:#fff;">Why Trust <span>Mira Medical Hall</span>?</h2>
+      <p class="lead" style="margin:0 auto;color:rgba(255,255,255,.7);">Every step of our service is built around your safety, health, and complete peace of mind.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="tc reveal" style="transition-delay:.05s"><div class="tc-ico">✅</div><div class="tc-ttl">100% Genuine Guarantee</div><div class="tc-dsc">All medicines sourced exclusively from authorized, certified distributors. No counterfeit, no compromise — ever.</div></div>
+      <div class="tc reveal" style="transition-delay:.1s"><div class="tc-ico">🎓</div><div class="tc-ttl">Certified Professionals</div><div class="tc-dsc">Trained pharmacists provide expert guidance on correct dosage, drug interactions, and safe medicine usage.</div></div>
+      <div class="tc reveal" style="transition-delay:.15s"><div class="tc-ico">🧊</div><div class="tc-ttl">Advanced Cold Storage</div><div class="tc-dsc">Strict cold-chain protocols for vaccines, insulin, and temperature-sensitive medicines preserve full potency.</div></div>
+      <div class="tc reveal" style="transition-delay:.2s"><div class="tc-ico">🧹</div><div class="tc-ttl">Highest Hygiene Standards</div><div class="tc-dsc">Regular sanitization and professional handling of all medical supplies in a clean, safe environment.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ PRESCRIPTION ██ -->
+<section id="rx" class="sec">
+  <div class="wrap">
+    <div class="lbl">Quick Order</div>
+    <h2 class="h2">Upload Your <span>Prescription</span></h2>
+    <div class="rx-grid">
+      <div class="rx-visual reveal-left">
+        <div class="rx-big">📋</div>
+        <div class="rx-vis-ttl">Easy Prescription Upload</div>
+        <div class="rx-vis-dsc">Take a clear photo of your prescription and send it to us. Our pharmacists verify and prepare your order promptly.</div>
+        <div class="rx-methods">
+          <a href="https://wa.me/919093210673?text=Hello%2C%20I%20want%20to%20send%20my%20prescription." target="_blank" class="rx-mth">
+            <div class="rx-mth-ico">💬</div><div class="rx-mth-name">WhatsApp</div><div class="rx-mth-sub">Quick &amp; easy</div>
+          </a>
+          <a href="mailto:sbose0972@gmail.com" class="rx-mth">
+            <div class="rx-mth-ico">📧</div><div class="rx-mth-name">Email Us</div><div class="rx-mth-sub">Attach photo</div>
+          </a>
+          <div class="rx-mth" onclick="document.getElementById('rxform').scrollIntoView({behavior:'smooth'})">
+            <div class="rx-mth-ico">📝</div><div class="rx-mth-name">Web Form</div><div class="rx-mth-sub">Fill below</div>
+          </div>
+        </div>
+      </div>
+      <div id="rxform" class="rx-form reveal-right">
+        <h3>Send Your Prescription</h3>
+        <p>Fill the form below — your details and prescription photo will be sent <strong>directly</strong> to <span style="color:var(--teal);font-weight:700;">sbose0972@gmail.com</span>.</p>
+
+        <!-- Status banner — shown above form always -->
+        <div id="formSuccess" style="display:none;margin-bottom:16px;padding:18px;background:var(--green-l);border-radius:var(--rs);border-left:4px solid var(--green);text-align:center;">
+          <div style="font-size:28px;margin-bottom:6px;">✅</div>
+          <div style="font-weight:700;color:var(--green-d);font-size:15px;">Prescription Submitted!</div>
+          <div style="font-size:13px;color:var(--gray6);margin-top:5px;">Your order details have been sent to <strong>sbose0972@gmail.com</strong>.<br>We will call you at <strong id="confirmedPhone"></strong> to confirm.</div>
+          
+          <button onclick="resetRxForm()" style="margin-top:12px;background:var(--teal);color:#fff;border:none;padding:8px 18px;border-radius:var(--rs);cursor:pointer;font-size:13px;font-weight:600;">Submit Another</button>
+        </div>
+        <div id="formError" style="display:none;margin-bottom:16px;padding:14px;background:#fee2e2;border-radius:var(--rs);border-left:4px solid #dc2626;font-size:13px;color:#c0392b;">
+          ⚠️ <strong>Submission failed.</strong> Please check your connection and try again, or WhatsApp us at <strong>90932 10673</strong>.
+        </div>
+
+        <form id="prescriptionForm" onsubmit="return false;">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-lbl">Full Name <span style="color:#dc2626">*</span></label>
+              <input type="text" id="rx_name" name="name" class="form-inp" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label class="form-lbl">Phone Number <span style="color:#dc2626">*</span></label>
+              <input type="tel" id="rx_phone" name="phone" class="form-inp" placeholder="+91 XXXXX XXXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-lbl">Address / Locality</label>
+            <input type="text" id="rx_address" name="address" class="form-inp" placeholder="Your address (optional)">
+          </div>
+          <div class="form-group">
+            <label class="form-lbl">Medicine Names / Notes</label>
+            <input type="text" id="rx_notes" name="notes" class="form-inp" placeholder="e.g. Paracetamol 500mg, Insulin, etc.">
+          </div>
+
+          <div class="form-group">
+            <label class="form-lbl">Prescription Photo <span style="color:var(--gray4);font-weight:400;">(optional — attach in email if unable to upload)</span></label>
+            <div class="upload-area" id="uploadArea" onclick="document.getElementById('rxfile').click()">
+              <input type="file" id="rxfile" name="attachment" accept="image/*,.pdf" onchange="setFileName(this)" style="display:none">
+              <div id="ua-ico-el" style="font-size:32px;margin-bottom:8px;">📸</div>
+              <div style="font-size:13px;color:var(--gray6);"><strong style="color:var(--teal);">Click to upload</strong> or drag &amp; drop</div>
+              <div id="fname" style="font-size:11px;color:var(--gray4);margin-top:5px;">JPG, PNG or PDF · Max 10 MB</div>
+            </div>
+          </div>
+
+          <div style="font-size:12px;color:var(--gray4);background:var(--gray1);border-radius:var(--rs);padding:11px 13px;line-height:1.65;margin-bottom:16px;">
+            🔒 Your details are sent <strong>securely and directly</strong> to <span style="color:var(--teal);">sbose0972@gmail.com</span>. Kept strictly confidential.
+          </div>
+
+          <button type="button" id="submitBtn" onclick="submitRxForm()" class="btn btn-teal btn-full" style="font-size:15px;padding:16px;width:100%;border:none;cursor:pointer;">📋 Submit Prescription Order</button>
+
+          <p style="font-size:12px;color:var(--gray4);text-align:center;margin-top:12px;">
+            Or email directly:
+            <a href="mailto:sbose0972@gmail.com" style="color:var(--teal);font-weight:600;" data-cfasync="false">sbose0972@gmail.com</a>
+          </p>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ CONTACT ██ -->
+<section id="contact" class="sec" style="background:var(--white);">
+  <div class="wrap">
+    <div class="lbl">Contact Us</div>
+    <h2 class="h2">Get in <span>Touch</span></h2>
+    <div class="contact-grid">
+      <div class="cinfo reveal-left">
+        <div class="ci"><div class="ci-ico tl">📍</div><div><div class="ci-lbl">Our Location</div><div class="ci-val">Gaighata Thana More, In Front of the Hospital</div><div class="ci-sub">North 24 Parganas, West Bengal, India</div></div></div>
+        <div class="ci"><div class="ci-ico tl">📞</div><div><div class="ci-lbl">Phone Numbers</div><div class="ci-val"><a href="tel:+919093210673" style="color:var(--teal);text-decoration:none;">90932 10673</a> &nbsp;/&nbsp; <a href="tel:+919932145345" style="color:var(--teal);text-decoration:none;">99321 45345</a></div><div class="ci-sub">Call for appointments &amp; orders</div></div></div>
+        <div class="ci"><div class="ci-ico gd">⏰</div><div><div class="ci-lbl">Operating Hours</div><div class="ci-val">Open Daily · 6 AM – 9 PM</div><div class="ci-sub">Closed every Tuesday</div></div></div>
+        <div class="ci"><div class="ci-ico gd">💬</div><div><div class="ci-lbl">WhatsApp</div><div class="ci-val"><a href="https://wa.me/919093210673" target="_blank" style="color:var(--green-d);text-decoration:none;">90932 10673</a></div><div class="ci-sub">Send prescriptions &amp; queries</div></div></div>
+        <div class="ci"><div class="ci-ico tl">📧</div><div><div class="ci-lbl">Email (Prescriptions)</div><div class="ci-val"><a href="mailto:sbose0972@gmail.com" style="color:var(--teal);text-decoration:none;">sbose0972@gmail.com</a></div><div class="ci-sub">Send prescription photo to this email</div></div></div>
+      </div>
+      <div class="reveal-right">
+        <div class="cta-box">
+          <h3>Ready to Order?</h3>
+          <p>Call us directly or send your prescription via WhatsApp for fast, convenient service.</p>
+          <div class="cta-btns">
+            <a href="tel:+919093210673" class="btn-white">📞 90932 10673</a>
+            <a href="tel:+919932145345" class="btn-white">📞 99321 45345</a>
+            <a href="https://wa.me/919093210673?text=Hello%20Mira%20Medical%20Hall." target="_blank" class="btn btn-wa btn-full">💬 Chat on WhatsApp</a>
+            <a href="mailto:sbose0972@gmail.com" class="btn-white">📧 sbose0972@gmail.com</a>
+            <a href="https://maps.google.com/?q=Gaighata+Thana+More+North+24+Parganas+West+Bengal" target="_blank" class="btn-white">🗺️ Get Directions on Google Maps</a>
+          </div>
+        </div>
+        <div class="em-note">
+          <div class="em-ttl">🚑 Medical Emergency?</div>
+          <div class="em-dsc">For urgent medicine needs, call <strong>90932 10673</strong> immediately. We'll prioritize your order.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ FOOTER ██ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="flogo">
+          <div class="flogo-box">M</div>
+          <div class="flogo-name">Mira Medical Hall</div>
+        </div>
+        <p>Your trusted allopathic pharmacy and specialist consultation center at Gaighata Thana More, North 24 Parganas. Genuine medicines &amp; compassionate care.</p>
+        <div class="fph">📞 90932 10673 / 99321 45345</div>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#doctors">Doctor Schedule</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Medicines &amp; Pharmacy</a></li>
+          <li><a href="#services">Doctor Consultation</a></li>
+          <li><a href="#services">Surgical Equipment</a></li>
+          <li><a href="#rx">Upload Prescription</a></li>
+          <li><a href="#services">Cold Chain Storage</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Hours</h4>
+        <ul>
+          <li><a href="#">Mon: 6 AM – 9 PM</a></li>
+          <li><a href="#" style="color:#f87171!important;">Tue: Closed</a></li>
+          <li><a href="#">Wed: 6 AM – 9 PM</a></li>
+          <li><a href="#">Thu: 6 AM – 9 PM</a></li>
+          <li><a href="#">Fri – Sun: 6 AM – 9 PM</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2025 Mira Medical Hall, Gaighata. All rights reserved.</div>
+      <div class="foot-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Call -->
+<a href="https://wa.me/919093210673?text=Hello%20Mira%20Medical%20Hall" target="_blank" id="floatwa" aria-label="WhatsApp" style="position:fixed;bottom:90px;right:22px;z-index:990;background:#25d366;color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;font-size:24px;box-shadow:0 4px 18px rgba(37,211,102,.45);" title="WhatsApp Us">&#128172;</a>
+<a href="tel:+919093210673" id="floatcall" aria-label="Call Now">
+  <span>📞</span><span class="fcall-txt">Call Now</span>
+</a>
+<!-- Back to Top -->
+<button id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+/* ── Nav ── */
+/* ── Loader dismiss ── */
+(function(){
+  function hideLoader(){
+    var l = document.getElementById('page-loader');
+    if(l) l.classList.add('hide');
+  }
+  if(document.readyState === 'complete'){
+    setTimeout(hideLoader, 400);
+  } else {
+    window.addEventListener('load', function(){ setTimeout(hideLoader, 400); });
+    setTimeout(hideLoader, 2800); /* hard cap */
+  }
+})();
+
+/* ── Nav ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+  document.getElementById('backtop').classList.toggle('vis', window.scrollY > 400);
+}, { passive: true });
+
+/* ── Hamburger ── */
+function toggleDrawer() {
+  document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('ham').classList.toggle('open');
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+}
+document.addEventListener('click', function(e) {
+  var d = document.getElementById('drawer');
+  var h = document.getElementById('ham');
+  if (d && d.classList.contains('open') && !d.contains(e.target) && !h.contains(e.target)) closeDrawer();
+});
+
+/* ── Scroll-reveal ── */
+document.body.classList.add('js-loaded');
+var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+if ('IntersectionObserver' in window) {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(function(el) { observer.observe(el); });
+} else {
+  revealEls.forEach(function(el) { el.classList.add('revealed'); });
+}
+
+/* ── File upload UI ── */
+function setFileName(input) {
+  var hint = document.getElementById('fname');
+  var ico  = document.getElementById('ua-ico-el');
+  if (input.files && input.files.length) {
+    hint.textContent = '\u2705 ' + input.files[0].name;
+    hint.style.color = 'var(--teal)';
+    if (ico) ico.textContent = '\ud83d\udcc4';
+  }
+}
+var ua = document.getElementById('uploadArea');
+if (ua) {
+  ua.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    ua.style.borderColor = 'var(--teal)';
+    ua.style.background  = 'var(--teal-l)';
+  });
+  ua.addEventListener('dragleave', function() {
+    ua.style.borderColor = '';
+    ua.style.background  = '';
+  });
+  ua.addEventListener('drop', function(e) {
+    e.preventDefault();
+    ua.style.borderColor = '';
+    ua.style.background  = '';
+    var file = e.dataTransfer.files[0];
+    if (file) {
+      try {
+        var dt = new DataTransfer();
+        dt.items.add(file);
+        document.getElementById('rxfile').files = dt.files;
+        setFileName(document.getElementById('rxfile'));
+      } catch(err) {}
+    }
+  });
+}
+
+/* ══════════════════════════════════════════════════
+   Runtime config — do not modify
+   ══════════════════════════════════════════════════ */
+var _s='OroPU3wAut5UtEUv';
+function _d(e){var b=atob(e),r='';for(var i=0;i<b.length;i++)r+=String.fromCharCode(b.charCodeAt(i)^_s.charCodeAt(i%_s.length));return r;}
+var _ik=_d('DUJXYmABFiRBRVBjEHFmFXZHV2NjB091QhEEZEQnN0Y=');
+var _wk=_d('LBAMYzYCTiBYTA0xQmhhQSxAQmhhVxVsEBYNYkMnZ0V7QFZo');
+var _sk=_d('JEsHFgVGQjUmP20SFxE7MgxAJmgvWhAwQkdGPxgyFAYiJD4fMXYFA0U8QwA5cy0kLj4fChMAGwACJlYYIRIwJSYdGRwscTQJG0ADPiQKOBQ=');
+var _sn=_d('dkJWY2cCR3dCRxlsTXZnR3tHXGRg');
+
+/* ══════════════════════════════════════════════════
+   PRESCRIPTION FORM HANDLER
+   ══════════════════════════════════════════════════ */
+function submitRxForm() {
+  var nameEl  = document.getElementById('rx_name');
+  var phoneEl = document.getElementById('rx_phone');
+  var name    = nameEl.value.trim();
+  var phone   = phoneEl.value.trim();
+
+  if (!name) {
+    nameEl.style.borderColor = '#dc2626';
+    nameEl.style.boxShadow   = '0 0 0 3px rgba(220,38,38,.15)';
+    nameEl.focus();
+    setTimeout(function() { nameEl.style.borderColor=''; nameEl.style.boxShadow=''; }, 3000);
+    return;
+  }
+  if (!phone) {
+    phoneEl.style.borderColor = '#dc2626';
+    phoneEl.style.boxShadow   = '0 0 0 3px rgba(220,38,38,.15)';
+    phoneEl.focus();
+    setTimeout(function() { phoneEl.style.borderColor=''; phoneEl.style.boxShadow=''; }, 3000);
+    return;
+  }
+
+  var address   = document.getElementById('rx_address').value.trim();
+  var notes     = document.getElementById('rx_notes').value.trim();
+  var fileInput = document.getElementById('rxfile');
+  var hasFile   = fileInput.files && fileInput.files.length > 0;
+
+  var btn     = document.getElementById('submitBtn');
+  var success = document.getElementById('formSuccess');
+  var errBox  = document.getElementById('formError');
+
+  btn.disabled = true;
+  btn.textContent = '\u23f3 Sending\u2026';
+  btn.style.opacity = '0.75';
+  success.style.display = 'none';
+  errBox.style.display  = 'none';
+
+  /* ── Step 3 ── */
+  function sendSMS(photoUrl) {
+    var msg = 'Rx Order - Mira Medical Hall | ' + name +
+              ' | Ph: ' + phone +
+              (notes    ? ' | ' + notes.substring(0, 35)  : '') +
+              (photoUrl ? ' | Photo: ' + photoUrl          : '');
+    fetch('https://www.fast2sms.com/dev/bulkV2' +
+          '?authorization=' + encodeURIComponent(_sk) +
+          '&message='       + encodeURIComponent(msg) +
+          '&language=english&route=q&numbers=' + _sn, {
+      method: 'GET', headers: { 'cache-control': 'no-cache' }
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) { console.log('SMS:', d.return ? 'OK' : d.message); })
+    .catch(function(e) { console.log('SMS note:', e.message); });
+  }
+
+  /* ── Step 2 ── */
+  function sendEmail(photoUrl) {
+    /* Plain JS object → JSON.stringify → no file, no FormData, no Pro error */
+    var payload = {
+      access_key:          _wk,
+      subject:             'Prescription Order \u2013 ' + name + ' \u2013 Mira Medical Hall',
+      from_name:           'Mira Medical Hall Website',
+      name:                name,
+      phone:               phone,
+      address:             address  || 'Not provided',
+      medicines:           notes    || 'Not provided',
+      prescription_photo:  photoUrl || 'No photo uploaded'
+    };
+
+    fetch('https://api.web3forms.com/submit', {
+      method:  'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept':       'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.success) {
+        sendSMS(photoUrl);
+        var cpEl = document.getElementById('confirmedPhone');
+        if (cpEl) cpEl.textContent = phone;
+        if (photoUrl) {
+          var th = document.getElementById('successThumb');
+          if (th) { th.src = photoUrl; th.style.display = 'block'; }
+        }
+        document.getElementById('prescriptionForm').style.display = 'none';
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error(data.message || 'Email failed');
+      }
+    })
+    .catch(function(err) { _showErr(err.message); });
+  }
+
+  /* ── Step 1 ── */
+  function uploadPhoto(file, cb) {
+    btn.textContent = '\u23f3 Uploading photo\u2026';
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      var b64 = ev.target.result.split(',')[1];
+      
+      var fd = new FormData();
+      fd.append('key',   _ik);
+      fd.append('image', b64);
+      fd.append('name',  'rx_' + name.replace(/\s+/g,'_') + '_' + Date.now());
+      fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: fd })
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+          if (d.success) { cb(d.data.url); }
+          else { console.warn('Upload failed:', d.error); cb(null); }
+        })
+        .catch(function(e) { console.warn('Upload error:', e.message); cb(null); });
+    };
+    reader.onerror = function() { cb(null); };
+    reader.readAsDataURL(file);
+  }
+
+  /* ── Pipeline kick-off ── */
+  if (hasFile) {
+    uploadPhoto(fileInput.files[0], function(photoUrl) {
+      btn.textContent = '\u23f3 Sending email\u2026';
+      sendEmail(photoUrl);
+    });
+  } else {
+    sendEmail(null);
+  }
+}
+
+function _showErr(msg) {
+  var errBox = document.getElementById('formError');
+  var btn    = document.getElementById('submitBtn');
+  errBox.innerHTML = '\u26a0\ufe0f <strong>Submission failed.</strong> Please WhatsApp us at <strong>90932&nbsp;10673</strong>.<br><small style="opacity:.7">' + msg + '</small>';
+  errBox.style.display = 'block';
+  errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  btn.disabled = false;
+  btn.textContent = '\ud83d\udccb Submit Prescription Order';
+  btn.style.opacity = '1';
+}
+
+function resetRxForm() {
+  var form = document.getElementById('prescriptionForm');
+  if (form) { form.reset(); form.style.display = ''; }
+  document.getElementById('formSuccess').style.display = 'none';
+  document.getElementById('formError').style.display   = 'none';
+  var hint = document.getElementById('fname');
+  if (hint) { hint.textContent = 'JPG, PNG or PDF \u00b7 Max 10 MB'; hint.style.color = ''; }
+  var ico = document.getElementById('ua-ico-el');
+  if (ico) ico.textContent = '\ud83d\udcf8';
+  var th = document.getElementById('successThumb');
+  if (th) { th.src = ''; th.style.display = 'none'; }
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = false;
+  btn.textContent = '\ud83d\udccb Submit Prescription Order';
+  btn.style.opacity = '1';
+}
+</script>
+</body>
+</html>
